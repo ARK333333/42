@@ -6,7 +6,7 @@
 /*   By: aalkhede <aalkhede@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 20:07:07 by aalkhede          #+#    #+#             */
-/*   Updated: 2025/08/21 21:32:07 by aalkhede         ###   ########.fr       */
+/*   Updated: 2025/08/21 20:20:48 by ark3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -18,15 +18,18 @@ int	*ft_range(int min, int max)
 	int	i;
 
 	range = max - min;
-	arr = malloc(sizeof(int) * range);
-	if (min >= max)
+	arr = malloc(sizeof(int) * range + 1);
+	if (!range)
 		return (0);
 	i = 0;
-	while (i++ < range)
-		arr[i] = min + i - 1;
+	while (i < range)
+	{
+		arr[i] = min + i;
+		i++;
+	}
 	return (arr);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int	main(int argc, char **argv)
 {
 	int	*arr;
@@ -41,6 +44,9 @@ int	main(int argc, char **argv)
 
 	size = max - min;
 	i = 0;
-	while (i++ < size)
+	while (i < size)
+	{
 		printf("%d", arr[i]);
-}
+		i++;
+	}
+}*/
