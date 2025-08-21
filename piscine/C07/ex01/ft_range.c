@@ -1,28 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalkhede <aalkhede@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 13:12:06 by aalkhede          #+#    #+#             */
-/*   Updated: 2025/08/21 13:13:07 by aalkhede         ###   ########.fr       */
+/*   Created: 2025/08/21 20:07:07 by aalkhede          #+#    #+#             */
+/*   Updated: 2025/08/21 21:32:07 by aalkhede         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdlib.h>
 
+int	*ft_range(int min, int max)
+{
+	int	range;
+	int	*arr;
+	int	i;
+
+	range = max - min;
+	arr = malloc(sizeof(int) * range);
+	if (min >= max)
+		return (0);
+	i = 0;
+	while (i++ < range)
+		arr[i] = min + i - 1;
+	return (arr);
+}
+#include <stdio.h>
 int	main(int argc, char **argv)
 {
+	int	*arr;
+	int	size;
 	int	i;
-	int	len;
+	int	min;
+	int	max;
 
+	min = atoi(argv[1]);
+	max = atoi(argv[2]);
+	arr = (ft_range(min, max));
+
+	size = max - min;
 	i = 0;
-	while (++i < argc)
-	{
-		len = 0;
-		while (argv[i][len++])
-			;
-		write(1, argv[i], len - 1);
-		write(1, "\n", 1);
-	}
+	while (i++ < size)
+		printf("%d", arr[i]);
 }
