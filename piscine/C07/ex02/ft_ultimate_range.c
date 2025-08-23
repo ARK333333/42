@@ -6,23 +6,29 @@
 /*   By: aalkhede <aalkhede@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 10:38:41 by aalkhede          #+#    #+#             */
-/*   Updated: 2025/08/22 11:30:18 by aalkhede         ###   ########.fr       */
+/*   Updated: 2025/08/23 18:08:39 by ark3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	i
+	int	i;
 
+	if (min >= max)
+		//range = NULL;
+		return (0);
 	i = 0;
-	while (i
+	while (i < (max - min))
+	{
+		*range[i] = i;
+		i++;
+	}
 	return (max - min);
 }
 #include <stdlib.h>
 #include <stdio.h>
 int	main(int argc, char **argv)
 {
-	int	i;
 	int	**range;
 	int	min;
 	int	max;
