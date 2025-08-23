@@ -6,23 +6,32 @@
 /*   By: aalkhede <aalkhede@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 10:38:41 by aalkhede          #+#    #+#             */
-/*   Updated: 2025/08/23 18:08:39 by ark3             ###   ########.fr       */
+/*   Updated: 2025/08/23 18:48:46 by ark3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdlib.h>
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	i;
+	int	len;
 
 	if (min >= max)
-		//range = NULL;
-		return (0);
-	i = 0;
-	while (i < (max - min))
 	{
-		*range[i] = i;
+		range = NULL;
+		return (0);
+	}
+	len = max - min;
+	range = malloc(sizeof(int) * len + 1);
+	if (!range)
+		return (-1);
+
+	i = 0;
+	while (i < len)
+	{
+		range[i] = i + 1;
 		i++;
 	}
+	free(range);
 	return (max - min);
 }
 #include <stdlib.h>
