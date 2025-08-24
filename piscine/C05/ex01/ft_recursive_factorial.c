@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalkhede <aalkhede@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 15:00:32 by aalkhede          #+#    #+#             */
-/*   Updated: 2025/08/24 14:56:13 by aalkhede         ###   ########.fr       */
+/*   Created: 2025/08/19 17:51:54 by aalkhede          #+#    #+#             */
+/*   Updated: 2025/08/20 14:29:35 by aalkhede         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-char	*ft_strdup(char *src)
+int	ft_recursive_factorial(int nb)
 {
-	char	*ptr;
-	int		len_src;
-
-	len_src = 0;
-	while (src[len_src])
-		len_src++;
-	ptr = malloc(len_src);
-	len_src = 0;
-	while (src[len_src])
-	{
-		ptr[len_src] = src[len_src];
-		len_src++;
-	}
-	ptr[len_src] = '\0';
-	return (ptr);
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
+		return (0);
+	return (nb * ft_recursive_factorial(nb - 1));
 }
 /*#include <stdio.h>
-int	main()
+int main()
 {
-	char	*str = "guten tag";
-	char	*dup;
 
-	dup = ft_strdup(str);
-	printf("%s", dup);
+	printf("%d", ft_recursive_factorial(3));
+	//(void)argc;
+	//printf("%d", ft_recursive_factorial((int)(argv[1][0])));
 }*/

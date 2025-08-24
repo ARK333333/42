@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalkhede <aalkhede@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 15:00:32 by aalkhede          #+#    #+#             */
-/*   Updated: 2025/08/24 14:56:13 by aalkhede         ###   ########.fr       */
+/*   Created: 2025/08/20 14:31:09 by aalkhede          #+#    #+#             */
+/*   Updated: 2025/08/20 14:42:09 by aalkhede         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-char	*ft_strdup(char *src)
+int	ft_iterative_power(int nb, int power)
 {
-	char	*ptr;
-	int		len_src;
+	int	res;
 
-	len_src = 0;
-	while (src[len_src])
-		len_src++;
-	ptr = malloc(len_src);
-	len_src = 0;
-	while (src[len_src])
+	if (power < 0)
+		return (0);
+	res = 1;
+	while (power--)
 	{
-		ptr[len_src] = src[len_src];
-		len_src++;
+		res *= nb;
 	}
-	ptr[len_src] = '\0';
-	return (ptr);
+	return (res);
 }
 /*#include <stdio.h>
 int	main()
 {
-	char	*str = "guten tag";
-	char	*dup;
-
-	dup = ft_strdup(str);
-	printf("%s", dup);
+	printf("%d \n", ft_iterative_power(2, 5));
+	printf("%d \n", ft_iterative_power(2, -5));
+	printf("%d \n", ft_iterative_power(2, 0));
 }*/

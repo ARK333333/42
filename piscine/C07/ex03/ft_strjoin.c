@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalkhede <aalkhede@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 15:00:32 by aalkhede          #+#    #+#             */
-/*   Updated: 2025/08/24 14:56:13 by aalkhede         ###   ########.fr       */
+/*   Created: 2025/08/24 16:02:57 by aalkhede          #+#    #+#             */
+/*   Updated: 2025/08/24 16:07:18 by aalkhede         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-char	*ft_strdup(char *src)
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	char	*ptr;
-	int		len_src;
-
-	len_src = 0;
-	while (src[len_src])
-		len_src++;
-	ptr = malloc(len_src);
-	len_src = 0;
-	while (src[len_src])
-	{
-		ptr[len_src] = src[len_src];
-		len_src++;
-	}
-	ptr[len_src] = '\0';
-	return (ptr);
+	
 }
-/*#include <stdio.h>
+
 int	main()
 {
-	char	*str = "guten tag";
-	char	*dup;
-
-	dup = ft_strdup(str);
-	printf("%s", dup);
-}*/
+	char	strs[] = "a1 a2 a3 a4";
+	ft_strjoin(4, strs, ' ');
+}

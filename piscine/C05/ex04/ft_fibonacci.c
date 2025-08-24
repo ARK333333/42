@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalkhede <aalkhede@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 15:00:32 by aalkhede          #+#    #+#             */
-/*   Updated: 2025/08/24 14:56:13 by aalkhede         ###   ########.fr       */
+/*   Created: 2025/08/20 15:34:46 by aalkhede          #+#    #+#             */
+/*   Updated: 2025/08/20 23:35:01 by aalkhede         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-char	*ft_strdup(char *src)
+int	ft_fibonacci(int index)
 {
-	char	*ptr;
-	int		len_src;
-
-	len_src = 0;
-	while (src[len_src])
-		len_src++;
-	ptr = malloc(len_src);
-	len_src = 0;
-	while (src[len_src])
-	{
-		ptr[len_src] = src[len_src];
-		len_src++;
-	}
-	ptr[len_src] = '\0';
-	return (ptr);
+	if (index < 0)
+		return (-1);
+	else if (index < 2)
+		return (index);
+	else
+		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
 /*#include <stdio.h>
-int	main()
+int main()
 {
-	char	*str = "guten tag";
-	char	*dup;
-
-	dup = ft_strdup(str);
-	printf("%s", dup);
+	printf("%d \n", ft_fibonacci(5));
+	printf("%d \n", ft_fibonacci(-5));
+	printf("%d \n", ft_fibonacci(6));
 }*/

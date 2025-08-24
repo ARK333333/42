@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalkhede <aalkhede@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 15:00:32 by aalkhede          #+#    #+#             */
-/*   Updated: 2025/08/24 14:56:13 by aalkhede         ###   ########.fr       */
+/*   Created: 2025/08/20 14:31:09 by aalkhede          #+#    #+#             */
+/*   Updated: 2025/08/20 23:19:09 by aalkhede         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-char	*ft_strdup(char *src)
+int	ft_recursive_power(int nb, int power)
 {
-	char	*ptr;
-	int		len_src;
-
-	len_src = 0;
-	while (src[len_src])
-		len_src++;
-	ptr = malloc(len_src);
-	len_src = 0;
-	while (src[len_src])
-	{
-		ptr[len_src] = src[len_src];
-		len_src++;
-	}
-	ptr[len_src] = '\0';
-	return (ptr);
+	if (power < 0)
+		return (0);
+	if (!(power == 0))
+		return (nb * ft_recursive_power(nb, power - 1));
+	return (1);
 }
 /*#include <stdio.h>
 int	main()
 {
-	char	*str = "guten tag";
-	char	*dup;
-
-	dup = ft_strdup(str);
-	printf("%s", dup);
+	printf("%d \n", ft_recursive_power(2, 5));
+	printf("%d \n", ft_recursive_power(2, -5));
+	printf("%d \n", ft_recursive_power(2, 0));
 }*/
